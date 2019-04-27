@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
+const colors = require('../../config/consolColor');
 //const env = process.env.NODE_ENV || 'development';
 //const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
@@ -16,16 +17,16 @@ const sequelize = new Sequelize(
     port: process.env.DB_PORT,
     dialect: process.env.DB_DIALECT,
     port: process.env.DB_PORT,
-    operatorsAliases: false,
+    logging: false
   },
 );
 sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log(colors.connect('λ ⛁ Veritabanı bağlantısı başarıyla kuruldu.'));
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.error(colors.err('λ Veritabanına bağlanılamıyor:'), err);
   });
 
 fs
