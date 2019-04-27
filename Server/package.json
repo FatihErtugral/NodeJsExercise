@@ -1,16 +1,24 @@
 {
-  "name": "26NisanServer",
+  "name": "26nisanserver",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dbModel": "node ./src/db/dbToModelScript.js"
+  },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
+    "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.7.5"
+    "sequelize": "^5.7.5",
+    "sequelize-auto": "^0.4.29",
+    "sequelize-cli": "^5.4.0"
   }
 }
