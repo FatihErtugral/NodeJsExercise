@@ -8,6 +8,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const initializeRoutes = require('./routes/index');
+const initializePassport = require('./config/passport');
 const app = express();
 
 app.use(cors());
@@ -19,8 +20,15 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
 }));
+initializePassport(app);
 initializeRoutes(app);
 
 app.listen(process.env.PORT,
-  () => console.log(colors.connect(`λ Sunucu çalışıyor http://localhost:${process.env.PORT}/`)));
+  () => {
+    console.clear();
+    console.log(
+      colors.connect(`λ Sunucu çalışıyor`),
+      colors.ok(`http://localhost:${process.env.PORT}/`)
+    );
+  });
 module.exports = app;

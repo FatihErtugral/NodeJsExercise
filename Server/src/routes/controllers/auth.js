@@ -1,11 +1,26 @@
 const colors = require('../../config/consolColor');
-const router = require('express').Router();
-const db = require('../../db/models/');
+const passport = require('passport');
 const uuidv1 = require('uuid/v1');
-const users = db.users;
+const db = require('../../db/models');
 const Op = db.Sequelize.Op;
 
-router.get('/register', (req, res, next) => {
+module.exports.login = (req, res, next) => {
+  passport.authenticate('local', (err, user/* , info */) => {
+    if (err) { return next(err); }
+    if (!user) {
+      return res.status(401)
+        .send({ code: 'unauthorized' }).end();
+    }
+    return req.logIn(user, (errLogin) => {
+      if (errLogin) {
+        return next(errLogin);
+      }
+      return res.send(user);
+    });
+  })(req, res, next);
+};
+
+module.exports.register = (req, res, next) => {
 
   let user = {
     'username': req.body.username,
@@ -18,8 +33,10 @@ router.get('/register', (req, res, next) => {
   let ctrl = false;
 
   for(let key in user){
-    if(user[key] == null || user[key] == undefined)
-      ctrl=true;
+    if(user[key] === null || user[key] === undefined)
+    {
+      ctrl=true; break;
+    }
   };
 
   if(ctrl) return (
@@ -43,6 +60,9 @@ router.get('/register', (req, res, next) => {
     .catch(err => console.log(err));
     res.status(201).send({username:user.username, pass:user.password});
   }).catch((err)=>console.error(err));
-});
+};
 
-module.exports = router;
+module.exports.logout = (req, res, next) => {
+  req.logout();
+  res.status(200).send({ success: true });
+};

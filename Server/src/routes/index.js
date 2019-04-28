@@ -1,23 +1,21 @@
-const createError = require('http-errors');
-const register =require('./controllers/register');
+const auth = require('./controllers/auth');
+const test = require('./controllers/test');
 
 const initializeRoutes = (app) => {
 
   // Routes
-  app.use(register);
+  app.get('/', (req,res) => res.send('NodeJs Server'));
+  app.post('/register', auth.register);
+  app.post('/login', auth.login);
+  app.use('/logout', auth.logout);
+
+  // Authorization test route
+  app.use('/test1', test.auth);
+  app.use('/test2', test.unauth);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
-    next(createError(404));
-  });
-
-  //error handler
-  app.use((err, req, res) => {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    res.status(err.status || 500).send();
+    next('404');
   });
 };
 
