@@ -1,3 +1,11 @@
+ul,li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
 .Home {
   text-align: center;
 }
