@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Login from './login';
 import '../../../css/member.css';
-
+import { loginApi } from '../../../api/request'
 
 
 const LoginSchema = Yup.object().shape({
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
   }
 
   submitValues = ({ userName, passworD }) => {
-    console.log({ userName, passworD });
+    loginApi(userName, passworD);
   }
   render() {
 

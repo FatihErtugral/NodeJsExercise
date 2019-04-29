@@ -11,6 +11,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "formik": "^1.5.4",
     "razzle": "^3.0.0",

@@ -2,7 +2,9 @@ import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Register from './register';
+import { registerApi } from '../../../api/request'
 import '../../../css/member.css';
+
 
 
 const SignupSchema = Yup.object().shape({
@@ -35,7 +37,7 @@ class RegisterForm extends React.Component {
   }
 
   submitValues = ({ userName, passworD, firstName, lastName, email }) => {
-    console.log({ userName, passworD, firstName, lastName, email});
+    registerApi(userName, passworD, firstName, lastName, email);
   }
   render() {
 

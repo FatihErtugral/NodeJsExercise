@@ -8,12 +8,11 @@ class Home extends React.Component {
       <div className="Home">
         <div className="Home-header">
           <h2>Merhaba Dünya!</h2>
-
         </div>
         <ul>
-            <li><Link to='/login'>Oturum aç</Link></li>
-            <li><Link to='/register'>Kayıt ol</Link></li>
-          </ul>
+          <li><Link to='/login'>Oturum aç</Link></li>
+          <li><Link to='/register'>Kayıt ol</Link></li>
+        </ul>
       </div>
     );
   }
