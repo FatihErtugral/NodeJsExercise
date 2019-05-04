@@ -9,7 +9,7 @@ import { loginApi } from '../../../api/request'
 const LoginSchema = Yup.object().shape({
   userName: Yup.string()
     .min(3, 'Minimum 3 karakter olabilir.')
-    .max(20, 'Minimum 20 karakter olabilir.')
+    .max(20, 'Maximum 20 karakter olabilir.')
     .required('Bu alan zorunludur.'),
   passworD: Yup.string()
     .max(25, '*')

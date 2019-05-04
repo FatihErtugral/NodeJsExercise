@@ -10,7 +10,7 @@ import '../../../css/member.css';
 const SignupSchema = Yup.object().shape({
   userName: Yup.string()
     .min(3, 'Minimum 3 karakter olabilir.')
-    .max(20, 'Minimum 20 karakter olabilir.')
+    .max(20, 'Maximum 20 karakter olabilir.')
     .required('Bu alan zorunludur.'),
   passworD: Yup.string()
     .max(25, '*')
@@ -19,11 +19,11 @@ const SignupSchema = Yup.object().shape({
     .required('Bu alan zorunludur.'),
   firstName: Yup.string()
     .min(2, 'Minimum 2 karakter olabilir.')
-    .max(35, 'Minimum 35 karakter olabilir.')
+    .max(35, 'Maximum 35 karakter olabilir.')
     .required('Bu alan zorunludur.'),
   lastName: Yup.string()
     .min(2, 'Minimum 2 karakter olabilir.')
-    .max(35, 'Minimum 35 karakter olabilir.')
+    .max(35, 'Maximum 35 karakter olabilir.')
     .required('Bu alan zorunludur.'),
   email: Yup.string()
     .email('Geçersiz e-posta')
