@@ -1,15 +1,18 @@
-const dotenv = require('dotenv');
-const result = dotenv.config({path: __dirname+'/config/.env'});
-if (result.error) {throw result.error};
 
-const colors = require('./config/consolColor');
+
+console.clear();
+require('dotenv').config({path: __dirname+'/config/.env'});
+
+const colors = require('consol-color');
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const initializeRoutes = require('./routes/index');
-const initializePassport = require('./config/passport');
+const initializePassport = require('./helpes/passport');
 const app = express();
+
+const {PORT, HOST} = process.env;
 
 app.use(cors());
 app.use(express.json());
@@ -23,12 +26,7 @@ app.use(session({
 initializePassport(app);
 initializeRoutes(app);
 
-app.listen(process.env.PORT,
-  () => {
-    console.clear();
-    console.log(
-      colors.connect(`λ Sunucu çalışıyor`),
-      colors.ok(`http://localhost:${process.env.PORT}/`)
-    );
-  });
+app.listen(PORT, HOST,
+  () => console.log(colors.info(`Sunucu çalışıyor http://${HOST}:${PORT}/`)));
+
 module.exports = app;

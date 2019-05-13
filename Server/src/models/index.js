@@ -4,9 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const colors = require('../../config/consolColor');
-//const env = process.env.NODE_ENV || 'development';
-//const config = require(__dirname + '/../config/config.json')[env];
+const colors = require('consol-color');
 const db = {};
 
 const sequelize = new Sequelize(
@@ -22,10 +20,10 @@ const sequelize = new Sequelize(
 sequelize
   .authenticate()
   .then(() => {
-    console.log(colors.connect('λ ⛁ Veritabanı bağlantısı başarıyla kuruldu.'));
+    console.log(colors.info('⛁ Veritabanı bağlantısı başarıyla kuruldu.'));
   })
   .catch(err => {
-    console.error(colors.err('λ Veritabanına bağlanılamıyor:'), err);
+    console.error(colors.err('Veritabanına bağlanılamıyor:'), err);
   });
 
 fs

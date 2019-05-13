@@ -5,9 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./src/server.js",
-    "dbModel": "node ./src/db/dbToModelScript.js"
+    "dev:model": "node ./src/helpers/sequelize/db-to-model.js"
   },
   "dependencies": {
+    "consol-color": "^1.0.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
