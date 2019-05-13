@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon -e js,graphql ./src/server.js",
-    "dev:model": "node ./src/helpers/sequelize/db-to-model.js"
+    "dev:model": "node ./src/helpers/sequelize/db-to-model.js",
+    "seed:all":"sequelize db:seed:all",
+    "seed:undo:all":"sequelize db:seed:undo:all"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",

@@ -1,14 +1,16 @@
 
 
 console.clear();
-require('dotenv').config({path: __dirname+'/config/.env'});
+require('dotenv').config({path: `${__dirname}/config/.env`});
 
 const colors = require('consol-color');
 const express = require('express');
 const initGraphql = require('./graphql');
 const {PORT, HOST} = process.env;
 const app = express();
+const db = require('./models');
 
+db.sequelize.sync();
 initGraphql(app);
 app.listen(PORT, HOST,
   () => console.log(colors.info(`Sunucu çalışıyor http://${HOST}:${PORT}/`)));

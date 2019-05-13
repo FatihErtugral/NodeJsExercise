@@ -8,23 +8,29 @@ const colors = require('consol-color');
 const db = {};
 
 const sequelize = new Sequelize(
-  process.env.DB_DBASE,
+  process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASS, {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: process.env.DB_DIALECT,
-    logging: false
+    logging: true,
   },
 );
 sequelize
   .authenticate()
   .then(() => {
-    console.log(colors.info('⛁ Veritabanı bağlantısı başarıyla kuruldu.'));
+    console.log(colors.info(`⛁ Veritabanı bağlantısı başarıyla kuruldu: ${process.env.DB_DIALECT}`));
   })
   .catch(err => {
     console.error(colors.err('Veritabanına bağlanılamıyor:'), err);
   });
+
+//
+//! Model klasöründeki modelleri veritabanında oluşturuyor.
+sequelize.sync({
+  force: true
+});
 
 fs
   .readdirSync(__dirname)
