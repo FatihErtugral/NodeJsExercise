@@ -1,0 +1,8 @@
+type Query {
+   UserGetAll: User
+}
+
+type User {
+   Username: String
+   Password: String
+}

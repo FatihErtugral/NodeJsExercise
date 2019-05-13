@@ -4,25 +4,34 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./src/server.js",
+    "start": "nodemon -e js,graphql ./src/server.js",
     "dev:model": "node ./src/helpers/sequelize/db-to-model.js"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "consol-color": "^1.0.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
     "express-session": "^1.16.1",
+    "graphql": "^14.3.0",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
-    "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^5.7.5",
     "sequelize-auto": "^0.4.29",
-    "sequelize-cli": "^5.4.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0",
+    "sequelize-cli": "^5.4.0"
   }
 }
