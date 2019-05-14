@@ -1,14 +1,14 @@
-const dotenv = require('dotenv');
-var SequelizeAuto = require('sequelize-auto');
-dotenv.config({path: './src/config/.env'});
+const SequelizeAuto = require('sequelize-auto');
+const path = require('path');
+require('dotenv').config({path: path.join(__dirname,"../../config/.env")});
 
 var auto = new SequelizeAuto(
-  process.env.DB_DBASE,
+  process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASS, {
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
-    directory: './src/db/models', // prevents the program from writing to disk
+    directory: path.join(__dirname,"../../models/"), // prevents the program from writing to disk
     port: process.env.DB_PORT,
     additional: {
         timestamps: false

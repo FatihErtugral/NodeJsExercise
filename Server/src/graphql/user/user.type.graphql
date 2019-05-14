@@ -1,0 +1,35 @@
+type Query {
+   """
+   Kullanıcı uuid'si ile arama yapabilirsiniz.
+   """
+   UserGet(UserId:ID!): User
+   """
+   Açıklama satırı
+   """
+   UserGetAll: [User]
+}
+
+type Mutation {
+   UserCreate(input: UserCreateInput!): Token
+}
+
+input UserCreateInput {
+   UserName: String!,
+   Password: String!,
+   FirstName: String!,
+   LastName: String!,
+   Email:String!
+}
+type User {
+   UserId:ID!
+   UserName: String!,
+   FirstName: String!,
+   LastName: String!,
+   Email: String!,
+   Roles: Role
+}
+
+
+type Token{
+   token: String!
+}

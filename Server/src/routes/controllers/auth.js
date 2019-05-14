@@ -1,7 +1,7 @@
-const colors = require('../../config/consolColor');
+const colors = require('consol-color');
 const passport = require('passport');
 const uuidv1 = require('uuid/v1');
-const db = require('../../db/models');
+const db = require('../../models');
 const Op = db.Sequelize.Op;
 
 module.exports.login = (req, res, next) => {
@@ -49,7 +49,7 @@ module.exports.register = (req, res, next) => {
   }).then((result)=> {
 
     if(result){
-      console.log(colors.warning('λ Böyle bir kullanıcı mevcut'));
+      console.log(colors.warn('Böyle bir kullanıcı mevcut'));
       return res.status(200).send('Böyle bir kullanıcı mevcut').end();
     }
     user.uuid = uuidv1();
