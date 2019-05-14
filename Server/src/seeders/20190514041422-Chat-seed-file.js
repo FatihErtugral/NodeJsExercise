@@ -1,6 +1,5 @@
 'use strict';
 const uuid = require('uuid');
-const bcrypt = require('bcrypt');
 let chat = Array(10).fill(null);
 
 const text = `
