@@ -1,0 +1,13 @@
+
+type Query {
+   Login(input: Login): Token!
+}
+
+input Login {
+   Password: String!,
+   Email: String!,
+}
+
+type Token {
+   token: String!
+}
