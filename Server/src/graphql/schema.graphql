@@ -1,0 +1,4 @@
+# import Query.*, Mutation.* from './user/user.type.graphql'
+# import Query.*, from './role/role.type.graphql'
+# import Query.*, from './login/login.type.graphql'
+# import Query.*, Mutation.* from './chat/chat.type.graphql'

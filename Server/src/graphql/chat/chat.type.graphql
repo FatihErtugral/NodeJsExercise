@@ -1,0 +1,25 @@
+
+scalar Date
+
+
+type Query {
+   ChatGetId(Id: ID!): Chat!
+   ChatGetAll: [Chat]
+}
+
+type Mutation {
+   ChatCreate(input: ChatInput!): Chat!
+}
+
+type Chat {
+   Id: ID!
+   UserId: ID!
+   Text: String!
+   createdAt: Date
+   updatedAt: Date
+}
+
+input ChatInput {
+   UserId: ID!
+   Text: String!
+}
