@@ -2,13 +2,14 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Chat', {
-		id: {
+		Id: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
-			primaryKey: true
+			primaryKey: true,
+			autoIncrement: true,
 		},
 		UserId: {
-			type: DataTypes.CHAR(36),
+			type: DataTypes.UUID,
 			allowNull: true
 		},
 		Text: {
@@ -17,14 +18,14 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		createdAt: {
 			type: DataTypes.DATE,
-			allowNull: true
+			allowNull: true,
 		},
 		updatedAt: {
 			type: DataTypes.DATE,
-			allowNull: true
+			allowNull: true,
 		}
 	}, {
 		tableName: 'Chat',
-		timestamps: false
+		timestamps: true
 	});
 };

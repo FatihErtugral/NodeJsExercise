@@ -10,7 +10,7 @@ module.exports = {
       UserGet: async (parent, { UserId }, { db }) => {
          return await db.User.findByPk(UserId).then(user => user)
       },
-      UserGetAll: async (parent, args, { db }) => await db.User.findAll({ order: [['username']] }),
+      UserGetAll: async (parent, args, { db }) => await db.User.findAll({ order: [['UserName']] }),
    },
 
    Mutation: {

@@ -7,7 +7,8 @@ const typeDefs = importSchema(__dirname + '/schema.graphql');
 const db = require('../models');
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
-const x = 'asd';
+
+
 module.exports = function (app) {
 
    app.use('/', graphqlHTTP(req => {

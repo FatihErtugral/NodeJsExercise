@@ -11,7 +11,9 @@ for (let i = 0; i < user.length; i++) {
       FirstName: 'Fatih',
       LastName: 'Ertuğral',
       Email: `fatihertugral89@${i}.com`,
-      RoleID: 3
+      RoleID: 3,
+      createdAt : new Date(),
+      updatedAt : new Date(),
    };
 }
 module.exports = {

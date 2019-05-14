@@ -1,11 +1,11 @@
 'use strict';
-
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const colors = require('consol-color');
 const db = {};
+require('dotenv').config({path: path.join(__dirname,"../config/.env")});
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -27,9 +27,11 @@ sequelize
   });
 
 //! Model klasöründeki modelleri veritabanında oluşturuyor.
-// sequelize.sync({
-//   force: true
-// });
+if (process.env.NODE_ENV == 'install') {
+  sequelize.sync({
+    force: true
+  });
+}
 
 fs
   .readdirSync(__dirname)

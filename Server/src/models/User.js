@@ -33,10 +33,17 @@ module.exports = function (sequelize, DataTypes) {
 		RoleId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: true,
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: true,
 		}
 	}, {
 			tableName: 'User',
-			timestamps: false,
 			hooks: {
 				beforeSave: (user) => {
 					console.log('beforeSave')
