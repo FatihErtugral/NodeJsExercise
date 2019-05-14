@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "license": "MIT",
-  "script:command" {
+  "script:command": {
     "start": "Normal başlangıç",
     "start:base": "Veritabanına modeldeki tabloları oluşturur.Veri tabanına demo değerler girer. Eğer tablo varsa siler yeniden oluşturur.",
     "start:dev": "Değişiklikleri anlık yansıtır. Kod geliştirirken kullanılır.",
