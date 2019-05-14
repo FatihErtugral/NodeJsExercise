@@ -4,6 +4,7 @@ const { importSchema } = require('graphql-import');
 const { makeExecutableSchema } = require('graphql-tools');
 const resolvers = require('./resolvers');
 const typeDefs = importSchema(__dirname + '/schema.graphql');
+const db = require('../models');
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 const x = 'asd';
@@ -13,7 +14,7 @@ module.exports = function (app) {
       return{
          schema,
          graphiql: true,
-         context: {x}
+         context: { db }
       }}
    ));
 }

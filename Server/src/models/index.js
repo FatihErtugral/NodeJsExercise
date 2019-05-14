@@ -26,11 +26,10 @@ sequelize
     console.error(colors.err('Veritabanına bağlanılamıyor:'), err);
   });
 
-//
 //! Model klasöründeki modelleri veritabanında oluşturuyor.
-sequelize.sync({
-  force: true
-});
+// sequelize.sync({
+//   force: true
+// });
 
 fs
   .readdirSync(__dirname)

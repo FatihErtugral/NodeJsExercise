@@ -30,13 +30,20 @@ module.exports = function (sequelize, DataTypes) {
 			allowNull: false,
 			unique: true
 		},
-		RoleID: {
+		RoleId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
 		}
 	}, {
 			tableName: 'User',
 			timestamps: false,
-
+			hooks: {
+				beforeSave: (user) => {
+					console.log('beforeSave')
+					return bcrypt
+						.hash(user.Password, bcrypt.genSaltSync(10))
+						.then(hash => { user.Password = hash; user.Role = 1});
+				},
+			}
 		});
 };
