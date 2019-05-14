@@ -3,24 +3,29 @@
   "version": "1.0.0",
   "main": "server.js",
   "license": "MIT",
+
   "script:command": {
     "start": "Normal başlangıç",
     "start:base": "Veritabanına modeldeki tabloları oluşturur.Veri tabanına demo değerler girer. Eğer tablo varsa siler yeniden oluşturur.",
     "start:dev": "Değişiklikleri anlık yansıtır. Kod geliştirirken kullanılır.",
-
     "db:reset": "Veritabanında bütün tabloları silip yeniden oluşturur.",
     "seed:all": "Veritabanı tablolarına otomatik değerler girer.",
     "seed:undo:all": "Veritabanına otomatik girilen değerleri siler.",
     "modelfile:generate": "Veritabanından tablo oluşturduğumuzda, bu script sayesinde 'models' klasörüne tablo.JS dosyası üretilir."
   },
   "scripts": {
+    "env:dev": "cross-env NODE_ENV=development",
+    "env:ins": "cross-env NODE_ENV=install",
     "start": "node ./src/server.js",
-    "start:base": "concurrently -c \"green.dim,cyan.dim,\" -n db:reset,seed:all \"yarn db:reset\" \"sleep 5 && yarn seed:all\"",
-    "start:dev": "NODE_ENV=development nodemon -e js,graphql ./src/server.js",
+    "start:dev": "yarn env:dev && yarn nodemon -e js,graphql ./src/server.js",
 
-    "db:reset": "NODE_ENV=install node ./src/models/index.js",
+    "start:base": "yarn env:ins && yarn db:reset && yarn seed:all",
+
+
+    "db:reset": "yarn env:ins node ./src/models/index.js",
     "seed:all": "sequelize db:seed:all",
     "seed:undo:all": "sequelize db:seed:undo:all",
+
     "modelfile:generate": "node ./src/helpers/sequelize/db-to-model.js"
   },
   "dependencies": {
@@ -48,6 +53,9 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
     "nodemon": "^1.19.0",
     "npm-run-all": "^4.1.5",
     "sequelize-cli": "^5.4.0"
