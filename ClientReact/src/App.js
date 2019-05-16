@@ -4,9 +4,9 @@ import './css/member.css';
 
 import { Switch, Route } from 'react-router-dom';
 
-import { Login } from './components/Login/Login';
+import { Login } from './pages/Login/Login';
 import Home from './pages/Home';
-import {Register} from './components/RegisterForm'
+import {Register} from './pages/Register'
 
 const App = () => (
   <Switch>
