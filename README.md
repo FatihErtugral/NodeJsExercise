@@ -7,7 +7,7 @@ Node js platformunda, express kullanarak veri tabanı bağlantısı ORM ile sağ
 - Sequelize, ilgili veri tabanı için ek kütüphane yüklemenizi isteyebilir. <a href="http://docs.sequelizejs.com/manual/getting-started.html">Sequelize Docs</a>
 
 <div  style="text-align:center">
-  <a href="https://asciinema.org/a/trrbyz9xug6G6DoUqAsbmnRQJ" target="_blank">
+  <a href="https://asciinema.org/a/trrbyz9xug6G6DoUqAsbmnRQJ?speed=1.9" target="_blank">
     <p align="center" >
       <img align="center" src="https://asciinema.org/a/trrbyz9xug6G6DoUqAsbmnRQJ.svg" width="500"/>
     </p>
