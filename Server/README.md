@@ -1,6 +1,6 @@
-# NodeJS WebAPI Server
+### NodeJS GraphQL Server
 - express
 - sequelize
 - Mysql
-- passportjs
-- ..
+- GraphQL
+- yup
