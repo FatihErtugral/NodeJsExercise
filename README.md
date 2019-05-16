@@ -6,6 +6,8 @@ Node js platformunda, express kullanarak veri tabanı bağlantısı ORM ile sağ
 - `Server/src/config/.env` dosyası içinden ilgili bağlantı ayarlarını gerçekleştirmelisiniz.
 - Sequelize, ilgili veri tabanı için ek kütüphane yüklemenizi isteyebilir. <a href="http://docs.sequelizejs.com/manual/getting-started.html">Sequelize Docs</a>
 
+[![asciicast](https://asciinema.org/a/trrbyz9xug6G6DoUqAsbmnRQJ.svg)](https://asciinema.org/a/trrbyz9xug6G6DoUqAsbmnRQJ)
+
 #### Birinci terminal
 ```yarn
 cd Server/
