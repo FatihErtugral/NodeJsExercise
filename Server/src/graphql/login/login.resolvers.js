@@ -5,7 +5,7 @@ const tokenKey = require('../../config/token-key');
 
 module.exports = {
 
-   Query: {
+   Mutation: {
       Login: async (parent, { input: { Email, Password } }, { db }) => {
          return await db.User
             .findOne({ where: { Email } })

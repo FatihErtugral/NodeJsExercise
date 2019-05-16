@@ -1,32 +1,43 @@
-import http from 'http';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-let app = require('./server').default;
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const server = http.createServer(app);
+import { BrowserRouter } from 'react-router-dom';
+const cache = new InMemoryCache();
+const BASE_URL = 'http://localhost:3000';
 
-let currentApp = app;
-
-server.listen(process.env.PORT || 3000, error => {
-  if (error) {
-    console.log(error);
-  }
-
-  console.log('🚀 started');
+const httpLink = new HttpLink({
+   uri: BASE_URL,
+   // headers: {
+   //    authorization: `Bearer ${
+   //       process.env.REACT_TOKEN
+   //       }`,
+   // },
 });
 
-if (module.hot) {
-  console.log('✅  Server-side HMR Enabled!');
+const client = new ApolloClient({
+   link: httpLink,
+   cache,
+});
 
-  module.hot.accept('./server', () => {
-    console.log('🔁  HMR Reloading `./server`...');
+ReactDOM.render(
+   <ApolloProvider client={client}>
+      <BrowserRouter>
+         <App />
+      </BrowserRouter>
+   </ApolloProvider>
+   ,
+   document.getElementById('root')
+);
 
-    try {
-      app = require('./server').default;
-      server.removeListener('request', currentApp);
-      server.on('request', app);
-      currentApp = app;
-    } catch (error) {
-      console.error(error);
-    }
-  });
-}
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

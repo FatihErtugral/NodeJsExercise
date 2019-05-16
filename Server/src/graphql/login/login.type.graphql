@@ -1,5 +1,5 @@
 
-type Query {
+type Mutation {
    Login(input: Login): Token!
 }
 

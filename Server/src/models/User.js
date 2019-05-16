@@ -45,12 +45,9 @@ module.exports = function (sequelize, DataTypes) {
 	}, {
 			tableName: 'User',
 			hooks: {
-				beforeSave: (user) => {
-					console.log('beforeSave')
-					return bcrypt
+				beforeSave: (user) => bcrypt
 						.hash(user.Password, bcrypt.genSaltSync(10))
-						.then(hash => { user.Password = hash; user.Role = 1});
-				},
+						.then(hash => { user.Password = hash; user.Role = 1}),
 			}
 		});
 };

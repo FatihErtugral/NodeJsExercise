@@ -8,8 +8,9 @@ const express = require('express');
 const initGraphql = require('./graphql');
 const {PORT, HOST} = process.env;
 const app = express();
-const db = require('./models');
+const cors = require('cors');
 
+app.use(cors());
 initGraphql(app);
 app.listen(PORT, HOST,
   () => console.log(colors.info(`Sunucu çalışıyor http://${HOST}:${PORT}/`)));
