@@ -7,6 +7,7 @@
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link-http": "^1.5.14",
+    "cross-env": "^5.2.0",
     "formik": "^1.5.4",
     "graphql": "^14.3.0",
     "graphql-tag": "^2.10.1",
@@ -20,7 +21,7 @@
     "yup": "^0.27.0"
   },
   "scripts": {
-    "start": "PORT=3006 react-scripts start",
+    "start": "cross-env PORT=3006 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
