@@ -1,14 +1,13 @@
 import React from "react";
 import { TextField, Button, Paper } from '@material-ui/core';
 import useForm from 'react-hook-form'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const LoginForm = ({login}) => {
+export const LoginForm = ({ login }) => {
   // TODO react-hook-form event silme konusunda hatalı, çözülmezse kütüphane değiştir.
-  const { register, handleSubmit, errors } = useForm({ mode: "onSubmit" });
-  const onSubmit = (data, e) => {
-    e.preventDefault();
-    return login({ variables: { Email: data.Email,Password:data.Password } });
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => {
+    login({ variables: { Email: data.Email, Password: data.Password } });
   };
 
   return (
@@ -19,7 +18,7 @@ export const LoginForm = ({login}) => {
             <div className="row justify-content-center">
               <Paper id='paper' className='col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12'>
                 <h2 id='loginHeader' className='formItem'>Giriş Yap</h2>
-                <form id="fatih" method='POST' onSubmit={handleSubmit(onSubmit)}>
+                <form id="fatih" onSubmit={handleSubmit(onSubmit)}>
 
                   <div className="formItem">
                     <TextField
@@ -56,23 +55,16 @@ export const LoginForm = ({login}) => {
                       helperText={errors.Password && errors.Password.message}
                       fullWidth
                     />
-
                   </div>
 
                   <div className="formItem ">
-                    <Button
-
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                    >GİRİŞ YAP
-                     </Button>
+                    <Button type="submit" fullWidth variant="contained" color="primary">GİRİŞ YAP</Button>
                   </div>
 
                   <div className="formItem ">
                     <Link to='/register'>Üyeliğiniz yokmu kayıt olun</Link>
                   </div>
+
                 </form>
               </Paper>
             </div>

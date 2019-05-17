@@ -10,6 +10,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { BrowserRouter } from 'react-router-dom';
+
 const cache = new InMemoryCache();
 const BASE_URL = 'http://localhost:3000';
 
