@@ -1,0 +1,109 @@
+import React, { Component } from 'react'
+
+export class ChatList extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         list: ''
+      }
+   }
+
+   render() {
+      return (
+         <div >
+            <ul>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+               <li>AAAA</li>
+               <li>BBBB</li>
+               <li>CCCC</li>
+               <li>DDDD</li>
+               <li>FFFF</li>
+            </ul>
+         </div>
+      );
+   }
+}

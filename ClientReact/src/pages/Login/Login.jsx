@@ -23,12 +23,12 @@ export const Login = ()=>{
           mutation={LOGIN_USER}
           onCompleted={({ Login }) => {
             Login.token && localStorage.setItem('token', Login.token );
-            client.writeData({ data: { isLoggedIn: true } });
+            Login.token && client.writeData({ data: { isLoggedIn: true } });
           }}
         >
           {(login, { loading, error }) => {
-            if (loading) return <p>loading...</p>;
-            if (error) return <p>{error.message}</p>;
+            if (loading) return (<p>loading...</p>);
+            if (error) return (<p>{error.message}</p>);
 
             return (<LoginForm login={login} />);
           }}

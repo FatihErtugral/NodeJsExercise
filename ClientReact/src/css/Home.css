@@ -1,45 +1,21 @@
-ul,li{
-  list-style-type: none;
-}
-
-a{
+a:link {
+  font-weight: bold;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
   text-decoration: none;
+  color: black;
 }
 
-.Home {
-  text-align: center;
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
-.Home-logo {
-  animation: Home-logo-spin infinite 20s linear;
-  height: 80px;
+a:hover {
+  text-decoration: underline;
 }
 
-.Home-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.Home-intro {
-  font-size: large;
-}
-
-.Home-resources {
-  list-style: none;
-}
-
-.Home-resources > li {
-  display: inline-block;
-  padding: 1rem;
-}
-
-@keyframes Home-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:active {
+  text-decoration: underline;
 }

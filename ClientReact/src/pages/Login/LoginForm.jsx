@@ -4,11 +4,8 @@ import useForm from 'react-hook-form'
 import { Link } from 'react-router-dom';
 
 export const LoginForm = ({ login }) => {
-  // TODO react-hook-form event silme konusunda hatalı, çözülmezse kütüphane değiştir.
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    login({ variables: { Email: data.Email, Password: data.Password } });
-  };
+  const onSubmit = data => login({ variables: { Email: data.Email, Password: data.Password } });
 
   return (
     <div className="outer">
@@ -32,6 +29,7 @@ export const LoginForm = ({ login }) => {
                       label="Kullanıcı Adı"
                       error={!!errors.Email}
                       helperText={errors.Email && errors.Email.message}
+                      required
                       fullWidth
                     />
                   </div>
@@ -53,6 +51,7 @@ export const LoginForm = ({ login }) => {
                       label="Parola"
                       error={!!errors.Password}
                       helperText={errors.Password && errors.Password.message}
+                      required
                       fullWidth
                     />
                   </div>
