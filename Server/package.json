@@ -21,7 +21,9 @@
     "db:reset": "yarn env:ins node ./src/models/index.js",
     "seed:all": "sequelize db:seed:all",
     "seed:undo:all": "sequelize db:seed:undo:all",
-    "modelfile:generate": "node ./src/helpers/sequelize/db-to-model.js"
+    "modelfile:generate": "node ./src/helpers/sequelize/db-to-model.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -46,7 +48,8 @@
     "sequelize-auto": "^0.4.29",
     "tedious": "^6.1.1",
     "uuid": "^3.3.2",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
@@ -55,5 +58,6 @@
     "nodemon": "^1.19.0",
     "npm-run-all": "^4.1.5",
     "sequelize-cli": "^5.4.0"
-  }
+  },
+  "snyk": true
 }
