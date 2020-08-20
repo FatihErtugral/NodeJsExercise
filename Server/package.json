@@ -24,7 +24,7 @@
     "modelfile:generate": "node ./src/helpers/sequelize/db-to-model.js"
   },
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "concurrently": "^4.1.0",
     "consol-color": "^1.0.0",
     "cookie-parser": "^1.4.4",
