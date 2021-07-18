@@ -3,4 +3,4 @@
 - sequelize
 - Mysql
 - GraphQL
-- yup
+- yups
